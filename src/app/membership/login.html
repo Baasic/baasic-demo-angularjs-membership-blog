@@ -1,0 +1,18 @@
+<form name="loginForm">
+  <h2>Login Form</h2>
+  <div>
+    <label for="userName">UserName:</label>
+    <input id="userName" type="text" ng-model="vm.user.userName" required maxlength="30">
+  </div>
+  <div>
+    <label for="password">Password:</label>
+    <input id="password" type="password" ng-model="vm.user.password" required maxlength="30">
+  </div>
+  <div>
+    <button type="submit" ng-click="vm.login()">Login</button>
+  </div>
+</form>
+<button type="submit" ng-click="vm.logout()">Logout</button>
+<div ng-if="vm.message">
+  <p>{{vm.message}}</p>
+</div>

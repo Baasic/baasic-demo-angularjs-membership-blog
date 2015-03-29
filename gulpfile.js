@@ -139,7 +139,13 @@ gulp.task('dist', ['vendors', 'assets', 'styles-dist', 'scripts-dist'], function
  */
 gulp.task('statics', g.serve({
   port: 3000,
-  root: ['./.tmp', './.tmp/src/app', './src/app', './bower_components']
+  root: ['./.tmp', './.tmp/src/app', './src/app', './bower_components'],
+  middleware: function (req, res, next) {
+    if (req.url.indexOf('.') === -1) {
+      req.url = '/index.html';
+    }
+    return next();
+  }
 }));
 
 /**

@@ -2,19 +2,46 @@
 <html ng-app="membershipblog">
   <head>
     <meta charset="utf-8"/>
-    <title>membershipblog</title>
+    <title>Membership Blog</title>
     <!-- inject:vendor:css -->
     <!-- endinject -->
     <!-- inject:css -->
+    <link rel="stylesheet" href="/css/app.css">
     <!-- endinject -->
+    <!-- Google Recaptcha -->
+    <script src="http://www.google.com/recaptcha/api/js/recaptcha_ajax.js" async defer></script>
   </head>
   <body>
-    <h1>membershipblog</h1>
-    <h2>Your new AngularJS app is now ready...</h2>
-    <ng-view></ng-view>
+    <h1>Membership</h1>
+    <ul>
+      <li><a ui-sref="login">Login Page</a></li>
+      <li><a ui-sref="register">Register Page</a></li>
+      <li><a ui-sref="password-recovery">Forgot Password Page</a></li>
+      <li><a ui-sref="account-activation({activationToken: '0QSA1jTXM0KOF03OApZz2Q'})">Account Activation Page</a></li>
+    </ul>
+    <div ui-view></div>
     <!-- inject:vendor:js -->
+    <script src="/angular/angular.js"></script>
+    <script src="/angular-route/angular-route.js"></script>
+    <script src="/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="/baasic-uritemplate/bin/UriTemplate.js"></script>
+    <script src="/baasic-angular-hal/src/Parser.js"></script>
+    <script src="/baasic-javascript-framework/dist/baasic-javascript-framework.js"></script>
+    <script src="/baasic-javascript-framework/dist/baasic-javascript-framework.min.js"></script>
+    <script src="/baasic-angular-core/dist/baasic-angular-core.js"></script>
+    <script src="/baasic-angular-membership/dist/baasic-angular-membership.js"></script>
+    <script src="/baasic-angular-security/dist/baasic-angular-security.js"></script>
     <!-- endinject -->
     <!-- inject:js -->
+    <script src="/app.js"></script>
+    <script src="/membership/register-controller.js"></script>
+    <script src="/membership/password-recovery-controller.js"></script>
+    <script src="/membership/password-change-controller.js"></script>
+    <script src="/membership/membership-service.js"></script>
+    <script src="/membership/login-controller.js"></script>
+    <script src="/membership/constants.js"></script>
+    <script src="/membership/account-activation-controller.js"></script>
+    <script src="/membershipblog-templates.js"></script>
     <!-- endinject -->
   </body>
 </html>
