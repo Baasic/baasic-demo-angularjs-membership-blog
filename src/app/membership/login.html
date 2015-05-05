@@ -10,10 +10,10 @@
   </div>
   <hr>
   <div>
-    <button type="submit" ng-click="vm.login()">Login</button>
+    <button type="submit" ng-click="vm.login()" ng-hide="vm.isUserLoggedIn">Login</button>
   </div>
 </form>
-<button type="submit" ng-click="vm.logout()">Logout</button>
+<button type="submit" ng-click="vm.logout()" ng-show="vm.isUserLoggedIn">Logout</button>
 <div ng-if="vm.message">
   <p>{{vm.message}}</p>
 </div>
