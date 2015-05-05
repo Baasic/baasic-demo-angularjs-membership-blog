@@ -15,10 +15,8 @@ angular.module('membershipblog')
     vm.login = function(){
       baasicLoginService.login(vm.user)
         .success(function(data){
-          //insert token into local storage
-          baasicAuthorizationService.updateAccessToken(data);
             //At this point, you can redirect user to a pages such as Home, Dashboard, etc...
-            vm.message = 'Successful login, user token is stored into local storage';
+            vm.message = 'Successful login';
         })
         .error(function(data, status){
             //You can format your error messages based on http status codes
@@ -31,8 +29,6 @@ angular.module('membershipblog')
 
       baasicLoginService.logout(token.access_token, token.token_type)
         .success(function(){
-          //delete token from local storage
-          baasicAuthorizationService.updateAccessToken(null);
           //At this point, you can redirect user to a pages such as Landing page, etc...
           vm.message = 'You have successfully logout yourself from baasic';
         })
