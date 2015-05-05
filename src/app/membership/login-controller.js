@@ -12,10 +12,20 @@ angular.module('membershipblog')
     vm.user = {};
     vm.user.options = ['session', 'sliding'];
 
+    (function(){
+      if(baasicAuthorizationService.getAccessToken()){
+        vm.isUserLoggedIn = true;
+      }
+      else{
+        vm.isUserLoggedIn = false;
+      }
+    })();
+
     vm.login = function(){
       baasicLoginService.login(vm.user)
         .success(function(data){
             //At this point, you can redirect user to a pages such as Home, Dashboard, etc...
+            vm.isUserLoggedIn = true;
             vm.message = 'Successful login';
         })
         .error(function(data, status){
@@ -30,6 +40,7 @@ angular.module('membershipblog')
       baasicLoginService.logout(token.access_token, token.token_type)
         .success(function(){
           //At this point, you can redirect user to a pages such as Landing page, etc...
+          vm.isUserLoggedIn = false;
           vm.message = 'You have successfully logout yourself from baasic';
         })
         .error(function(data, status){
