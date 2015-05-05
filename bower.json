@@ -5,9 +5,9 @@
     "/dist/membershipblog.min.css"
   ],
   "version": "0.1.0",
-  "description": "TODO",
+  "description": "Baasic AngularJS SDK Membership module example",
   "authors": [
-    "TODO"
+    "Darjan Bogdan"
   ],
   "ignore": [
     "**/.*",
@@ -22,8 +22,7 @@
     "angular": "~1.2.14",
     "angular-route": "~1.2.14",
     "angular-ui-router": "~0.2.13",
-    "baasic-angular-security": "http://gitserver/monosoftware/baasic-sdk-angularjs-security.git#~0.2.1",
-    "baasic-angular-membership": "http://gitserver/monosoftware/baasic-sdk-angularjs-membership.git#~0.2.1"
+    "baasic-angularjs-membership": "~0.2.5"
   },
   "devDependencies": {
     "angular-mocks": "~1.2.14"
