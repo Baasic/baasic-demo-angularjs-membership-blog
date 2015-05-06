@@ -34,7 +34,7 @@ angular.module('membershipblog', ['ui.router', 'baasic.security', 'baasic.member
     $locationProvider.html5Mode(true);
 
     //default page
-    $urlRouterProvider.otherwise('/login');
+    $urlRouterProvider.otherwise('/');
 
     //define Baasic app
     baasicAppProvider.create('membership-blog', {

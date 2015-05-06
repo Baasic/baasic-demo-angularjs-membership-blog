@@ -7,11 +7,17 @@ This demo will be focused on user registration, account activation and login fun
 
 ## Build the demo
 
-As a client-side prerequisite, you should install the basic tools for your operating system: Node.js, Bower and Gulp. Start by cloning the [AngularJS membership blog repository](https://github.com/Baasic/baasic-demo-angularjs-membership-blog/). After that, go into the root folder of the started kit you just cloned and type
+As a client-side prerequisite, you should install the basic tools for your operating system: Node.js, Bower and Gulp. Start by cloning the [AngularJS membership blog repository](https://github.com/Baasic/baasic-demo-angularjs-membership-blog/). After that, go into the root folder of the started kit you just cloned and type:
 
     npm install
     
-npm (Node Package Manager) will go through its configuration file (package.json) and install all dependencies. It may take a couple of minutes to download and install everything; when it is finished, just type
+npm (Node Package Manager) will go through its configuration file (package.json) and install all dependencies. It may take a couple of minutes to download and install everything.
+
+When npm finish installation, you need to download Bower components as well. In order to that, just type the following:
+
+    bower install
+
+when Bower downloads project dependencies, you can run Gulp tasks via:
 
     gulp serve
     
