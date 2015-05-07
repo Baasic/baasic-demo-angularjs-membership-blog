@@ -31,7 +31,10 @@ angular.module('membershipblog', ['ui.router', 'baasic.security', 'baasic.member
       });
 
     //urls without hashbangs
-    $locationProvider.html5Mode(true);
+    $locationProvider.html5Mode({
+          enabled: true,
+          requireBase: true
+      });
 
     //default page
     $urlRouterProvider.otherwise('/');
