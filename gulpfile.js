@@ -11,6 +11,7 @@ var gulp = require('gulp'),
     lazypipe = require('lazypipe'),
     stylish = require('jshint-stylish'),
     bower = require('./bower'),
+    runSequence = require('run-sequence'),
     isWatching = false;
 
 var htmlminOpts = {
@@ -20,6 +21,22 @@ var htmlminOpts = {
   collapseBooleanAttributes: true,
   removeRedundantAttributes: true
 };
+
+var env = {};
+switch (g.util.env._[0]) {
+  case 'serve':
+    env.name = 'dev';
+    env.isDev = true;
+    break;
+  case 'dist':
+    env.name = 'dist';
+    env.isDist = true;
+    break;
+  case 'test':
+    env.name = 'test';
+    env.isTest = true;
+    break;
+}
 
 /**
  * JS Hint
@@ -66,7 +83,7 @@ gulp.task('csslint', ['styles'], function () {
 /**
  * Scripts
  */
-gulp.task('scripts-dist', ['templates-dist'], function () {
+gulp.task('scripts-dist', ['templates'], function () {
   return appFiles().pipe(dist('js', bower.name, {ngAnnotate: true}));
 });
 
@@ -74,11 +91,7 @@ gulp.task('scripts-dist', ['templates-dist'], function () {
  * Templates
  */
 gulp.task('templates', function () {
-  return templateFiles().pipe(buildTemplates());
-});
-
-gulp.task('templates-dist', function () {
-  return templateFiles({min: true}).pipe(buildTemplates());
+  return templateFiles({ min: env.isDist }).pipe(buildTemplates());
 });
 
 /**
@@ -111,6 +124,7 @@ function index () {
     .pipe(g.inject(es.merge(appFiles(), cssFiles(opt)), {ignorePath: ['.tmp', 'src/app']}))
     .pipe(gulp.dest('./src/app/'))
     .pipe(g.embedlr())
+    .pipe(g.injectString.after('<!-- inject:baseUrl -->', '\n<base href="/">\n'))
     .pipe(gulp.dest('./.tmp/'))
     .pipe(livereload());
 }
@@ -126,12 +140,23 @@ gulp.task('assets', function () {
 /**
  * Dist
  */
-gulp.task('dist', ['vendors', 'assets', 'styles-dist', 'scripts-dist'], function () {
+gulp.task('clean-dist', function (done) {
+  rimraf('./dist/.', done);
+});
+
+gulp.task('perform-dist', ['vendors', 'assets', 'styles-dist', 'scripts-dist'], function () {
   return gulp.src('./src/app/index.html')
-    .pipe(g.inject(gulp.src('./dist/vendors.min.{js,css}'), {ignorePath: 'dist', starttag: '<!-- inject:vendor:{{ext}} -->'}))
-    .pipe(g.inject(gulp.src('./dist/' + bower.name + '.min.{js,css}'), {ignorePath: 'dist'}))
+    .pipe(g.inject(gulp.src('./dist/vendors.min.js'), { ignorePath: 'dist', starttag: '<!-- inject:vendor:{{ext}} -->', addRootSlash: false }))
+    .pipe(g.inject(gulp.src('./dist/' + bower.name + '.min.js'), { ignorePath: 'dist', addRootSlash: false }))
+    .pipe(g.inject(gulp.src('./dist/assets/css/vendors.min.css'), { ignorePath: 'dist', starttag: '<!-- inject:vendor:{{ext}} -->', addRootSlash: false }))
+    .pipe(g.inject(gulp.src('./dist/assets/css/' + bower.name + '.min.css'), { ignorePath: 'dist', addRootSlash: false }))
+    .pipe(g.if(g.util.env.baseUrl !== undefined, g.injectString.after('<!-- inject:baseUrl -->', '\n<base href="' + g.util.env.baseUrl + '">\n')))
     .pipe(g.htmlmin(htmlminOpts))
     .pipe(gulp.dest('./dist/'));
+});
+
+gulp.task('dist', function (callback) {
+  runSequence('clean-dist', 'perform-dist', callback);
 });
 
 /**
@@ -290,15 +315,16 @@ function fileTypeFilter (files, extension) {
  */
 function dist (ext, name, opt) {
   opt = opt || {};
+  var dest = (ext === 'css' ? './dist/assets/css' : './dist');
   return lazypipe()
     .pipe(g.concat, name + '.' + ext)
-    .pipe(gulp.dest, './dist')
+    .pipe(gulp.dest, dest)
     .pipe(opt.ngAnnotate ? g.ngAnnotate : noop)
     .pipe(opt.ngAnnotate ? g.rename : noop, name + '.annotated.' + ext)
-    .pipe(opt.ngAnnotate ? gulp.dest : noop, './dist')
+    .pipe(opt.ngAnnotate ? gulp.dest : noop, dest)
     .pipe(ext === 'js' ? g.uglify : g.minifyCss)
     .pipe(g.rename, name + '.min.' + ext)
-    .pipe(gulp.dest, './dist')();
+    .pipe(gulp.dest, dest)();
 }
 
 /**

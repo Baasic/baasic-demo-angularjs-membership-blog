@@ -1,32 +1,32 @@
 angular.module('membershipblog', ['ui.router', 'baasic.security', 'baasic.membership'])
-  .config(function($stateProvider, $urlRouterProvider, $locationProvider, baasicAppProvider){
+  .config(function($stateProvider, $urlRouterProvider, $locationProvider, baasicAppProvider, Constants){
     'use strict';
 
     //routing
     $stateProvider
       .state('login',{
         url: '/login',
-        templateUrl: 'membership/login.html',
+        templateUrl: Constants.templatesPath + 'membership/login.html',
         controller: 'LoginController'
       })
       .state('register', {
         url: '/register',
-        templateUrl: 'membership/register.html',
+        templateUrl: Constants.templatesPath + 'membership/register.html',
         controller: 'RegisterController'
       })
       .state('password-recovery', {
         url: '/password-recovery',
-        templateUrl: 'membership/password-recovery.html',
+        templateUrl: Constants.templatesPath + 'membership/password-recovery.html',
         controller: 'PasswordRecoveryController'
       })
       .state('password-change', {
         url: '/password-change?passwordRecoveryToken',
-        templateUrl: 'membership/password-change.html',
+        templateUrl: Constants.templatesPath + 'membership/password-change.html',
         controller: 'PasswordChangeController'
       })
       .state('account-activation', {
         url: '/account-activation?activationToken',
-        templateUrl: 'membership/account-activation.html',
+        templateUrl: Constants.templatesPath + 'membership/account-activation.html',
         controller: 'AccountActivationController'
       });
 
