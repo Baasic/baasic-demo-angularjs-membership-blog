@@ -1,0 +1,102 @@
+/*------------------------------------*\
+    # baasicbar
+\*------------------------------------*/
+
+.baasicbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: white;
+    width: 100%;
+    background: #00c2e8;
+}
+.baasicbar__content {
+    overflow: hidden;
+}
+.baasicbar__logo {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 2.5%;
+    width: 20%;
+    display: block;
+    float: left;
+    background: rgba(255,255,255,0);
+    -webkit-transition: background .2s ease-in-out;
+    transition: background .2s ease-in-out;
+}
+@media all and (min-width: 44em) {
+    .baasicbar__logo {
+    }
+}
+.baasicbar__logo img {
+    width: auto;
+    min-width: initial;
+}
+.baasicbar__logo:hover,
+.baasicbar__logo:focus,
+.baasicbar__logo:active {
+    background: rgba(255,255,255,0.2);
+}
+.baasicbar__right {
+    width: 60%;
+    padding-top: 16px;
+    padding-right: 2.5%;
+    float: right;
+}
+@media all and (min-width: 46em) {
+    .baasicbar__right {
+        width: 40%;
+    }
+}
+.baasicbar__right .btn {
+    float: right;
+}
+.baasicbar__tech {
+    float: right;
+    list-style: none;
+    display: inline-block;
+    margin-left: 0;
+    padding-left: 0;
+    margin-right: .5em;
+}
+.baasicbar__tech__link {
+    display: block;
+    width: 36px;
+    height: 36px;
+    opacity: 0.6;
+    -webkit-transition: opacity .2s ease-in-out;
+    transition: opacity .2s ease-in-out;
+}
+.baasicbar__tech__link:hover,
+.baasicbar__tech__link:focus,
+.baasicbar__tech__link:active {
+    opacity: 1;
+}
+.btn {
+    font-family: Helvetica, Arial, sans-serif;
+    border: 0;
+    padding: 0;
+    display: inline-block;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 16px;
+    font-size: 14px;
+    border-radius: 100px;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+.btn:hover,
+.btn:visited,
+.btn:active {
+    color: white;
+}
+.btn:focus {
+    outline: 0;
+}
+.btn-primary {
+    background: #ff2b3b;
+    color: white;
+}
+.btn-primary:hover {
+    background: #333;
+}

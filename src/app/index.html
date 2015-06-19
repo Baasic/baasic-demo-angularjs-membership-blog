@@ -1,25 +1,48 @@
 <!DOCTYPE html>
 <html ng-app="membershipblog">
-  <head>
+<head>
     <base href="/angularjs/membership-demo/" />
     <meta charset="utf-8"/>
     <title>Membership Blog</title>
-    <!-- inject:vendor:css -->
-    <!-- endinject -->
-    <!-- inject:css -->
-    <link rel="stylesheet" href="/css/app.css">
-    <!-- endinject -->
-    <!-- Google Recaptcha -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/demo-base.css">
+    <link rel="stylesheet" href="/css/demo-baasicbar.css">
     <script src="http://www.google.com/recaptcha/api/js/recaptcha_ajax.js" async defer></script>
-  </head>
-  <body>
-    <h1>Membership</h1>
-    <ul>
-      <li><a ui-sref="login">Login Page</a></li>
-      <li><a ui-sref="register">Register Page</a></li>
-      <li><a ui-sref="password-recovery">Forgot Password Page</a></li>
-    </ul>
-    <div ui-view></div>
+</head>
+<body>
+    <div class="container">
+        <!-- Baasic bar -->
+        <div class="baasicbar">
+            <div class="baasicbar__content">
+                <a href="http://www.baasic.com" class="baasicbar__logo">
+                    <img src="/img/tech/logo_baasic.svg" alt="Baasic">
+                </a>
+                <div class="baasicbar__right">
+                    <a href="https://dashboard.baasic.com/register" class="btn btn-primary">Free signup</a>
+                    <ul class="baasicbar__techlist">
+                        <li class="baasicbar__tech">
+                            <a class="baasicbar__tech__link" title="AngularJS" href="https://angularjs.org/"><img src="/img/tech/logo_angular.svg" alt="AngularJS"></a>
+                        </li>
+                        <li class="baasicbar__tech">
+                            <a class="baasicbar__tech__link" title="HTML5" href="http://www.w3.org/TR/html5/"><img src="/img/tech/logo_html5.svg" alt="HTML5"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <aside>
+            <nav>
+                <ul>
+                    <li><a ui-sref="login">Login</a></li>
+                    <li><a ui-sref="register">Register</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main>
+            <div ui-view></div>
+        </main>
+    </div>
     <!-- inject:vendor:js -->
     <script src="/angular/angular.js"></script>
     <script src="/angular-route/angular-route.js"></script>
@@ -42,5 +65,5 @@
     <script src="/membership/Constants.js"></script>
     <script src="/membershipblog-templates.js"></script>
     <!-- endinject -->
-  </body>
+</body>
 </html>

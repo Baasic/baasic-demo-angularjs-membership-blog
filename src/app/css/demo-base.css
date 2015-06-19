@@ -1,0 +1,357 @@
+/*------------------------------------*\
+    # base
+\*------------------------------------*/
+*, *:after, *:before {
+    box-sizing: border-box;
+}
+html {
+    font-size: 125%;
+    line-height: 150%;
+}
+
+body {
+    position: relative;
+    background-color: #f5f5f5;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+    overflow-x: hidden;
+    min-width: 420px;
+}
+
+img {
+    vertical-align: top;
+    min-width: 100%;
+    width: 100%;
+}
+
+/*------------------------------------*\
+    # typography
+\*------------------------------------*/
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+    margin: 0;
+    margin-bottom: 1rem;
+}
+
+h1, h2, h3, h4 {
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 2.369em;
+}
+
+h2 {
+    font-size: 1.777em;
+}
+h3 {
+    font-size: 1.333em;
+}
+
+h4, h5, h6 {
+    font-size: 1em;
+}
+
+small {
+    font-size: 0.75em;
+}
+
+p {
+    margin: 0;
+}
+
+blockquote {
+    text-align: center;
+    margin: 2em 0 2em 0;
+}
+blockquote p {
+    font-size: 1.777em;
+    line-height: 1.2;
+    margin-bottom: .5em;
+    color: #555;
+}
+blockquote cite {
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    font-size: 0.75em;
+    font-style: normal;
+    color: #999;
+}
+
+/*------------------------------------*\
+    # anchors
+\*------------------------------------*/
+a {
+    text-decoration: none;
+    color: #00c2e8;
+    transition: all .2s;
+}
+a:hover,
+a:focus {
+    color: #222;
+}
+
+/*------------------------------------*\
+    # lists
+\*------------------------------------*/
+
+ol, ul, dl {
+    margin-bottom: 1rem;
+}
+ol, ul {
+    margin-top: 0;
+    padding: 0;
+    list-style: none;
+    list-style-position: outside;
+}
+ol li,
+ul li {
+}
+dl {
+    overflow: hidden;
+}
+dl dt {
+    font-weight: bold;
+    float: left;
+    width: 37.5%;
+    margin-right: 2.5%;
+}
+dl dd {
+    float: left;
+    width: 50%;
+    margin: 0;
+}
+
+/*------------------------------------*\
+    # layout
+\*------------------------------------*/
+
+.container {
+    padding: 6em 2em;
+    overflow: hidden;
+}
+@media (min-width: 40em) {
+    .container {
+        padding: 6em 2em;
+        max-width: 40em;
+        margin: 0 auto;
+    }
+}
+
+main {
+    background: white;
+    padding: 48px;
+    border-radius: 4px;
+}
+@media (min-width: 40em) {
+    main {
+        width: 70%;
+        margin: 0 auto;
+    }
+}
+aside {
+    overflow: hidden;
+    margin-bottom: 24px;
+}
+@media (min-width: 40em) {
+    aside {
+        width: 70%;
+        margin: 0 auto 24px auto;
+    }
+}
+aside a {
+    font-size: 14px;
+    padding: 16px;
+}
+aside ul li {
+    float: left;
+}
+
+/*------------------------------------*\
+    # header
+\*------------------------------------*/
+.header {
+    margin-bottom: 5em;
+}
+.prehead {
+    text-transform: uppercase;
+    letter-spacing: .3em;
+    margin-bottom: 1em;
+    font-family: Arial, sans-serif;
+    font-size: 0.75em;
+}
+.header h1 {
+}
+@media (min-width: 40em) {
+    .header h1 {
+        font-size: 4.5em;
+    }
+}
+
+/*------------------------------------*\
+    # button
+\*------------------------------------*/
+.button {
+    border: 0;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 6px 18px;
+    background: #00c2e8;
+    color: white;
+    font-size: 14px;
+    border-radius: 4px;
+}
+.button:hover {
+    background: #222;
+    transition: all .2s;
+}
+
+/*------------------------------------*\
+    # forms, inputs and labels
+\*------------------------------------*/
+.field {
+    margin-bottom: 1em;
+}
+.input {
+    padding: .5em;
+    border: 1px solid #eee;
+    color: #555;
+    width: 100%;
+}
+.label {
+    display: block;
+    font-size: .75em;
+    color: #999;
+}
+
+/*------------------------------------*\
+    # errormessage
+\*------------------------------------*/
+.errormessage {
+    display: inline-block;
+    background: #FF4553;
+    font-size: 12px;
+    padding: 0 12px;
+    color: white;
+    border-radius: 4px;
+    line-height: 24px;
+}
+
+/*------------------------------------*\
+    # successmessage
+\*------------------------------------*/
+.successmessage {
+    display: inline-block;
+    background: lightgreen;
+    font-size: 12px;
+    padding: 0 12px;
+    color: white;
+    border-radius: 4px;
+    line-height: 24px;
+}
+
+/*------------------------------------*\
+    # emptymessage
+\*------------------------------------*/
+
+.emptymessage {
+    padding: 1rem;
+    border: 1px solid #eee;
+    background: #f9f9f9;
+    font-size: 0.75em;
+}
+
+/*------------------------------------*\
+    # overlay
+\*------------------------------------*/
+
+.overlay {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    visibility: visible;
+    opacity: 1;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    background: rgba(255, 255, 255, 1);
+}
+.overlay.ng-hide {
+    display: block !important;
+    visibility: hidden;
+    opacity: 0;
+}
+.overlay .loader {
+    margin: 4em auto 0 auto;
+}
+
+/*------------------------------------*\
+    # loading
+\*------------------------------------*/
+
+
+.loader {
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    position: relative;
+    left: -12px;
+    -webkit-animation: dots 1s linear infinite alternate;
+    -moz-animation: dots 1s linear infinite alternate;
+    animation: dots 1s linear infinite alternate;
+}
+@-webkit-keyframes dots {
+    0% {
+        background-color: rgba(0,0,0, 1);
+        box-shadow: 12px 0px 0px 0px rgba(0,0,0,0.2), 
+        24px 0px 0px 0px rgba(0,0,0,0.2);
+    }
+    25% { 
+        background-color: rgba(0,0,0, 0.4);
+        box-shadow: 12px 0px 0px 0px rgba(0,0,0,2), 
+        24px 0px 0px 0px rgba(0,0,0,0.2);
+    }
+    75% { background-color: rgba(0,0,0, 0.4);
+        box-shadow: 12px 0px 0px 0px rgba(0,0,0,0.2), 
+        24px 0px 0px 0px rgba(0,0,0,1);
+    }
+}
+
+@-moz-keyframes dots {
+    0% {
+        background-color: rgba(0,0,0, 1);
+        box-shadow: 12px 0px 0px 0px rgba(0,0,0,0.2), 
+        24px 0px 0px 0px rgba(0,0,0,0.2);
+    }
+    25% { 
+        background-color: rgba(0,0,0, 0.4);
+        box-shadow: 12px 0px 0px 0px rgba(0,0,0,2), 
+        24px 0px 0px 0px rgba(0,0,0,0.2);
+    }
+    75% { background-color: rgba(0,0,0, 0.4);
+        box-shadow: 12px 0px 0px 0px rgba(0,0,0,0.2), 
+        24px 0px 0px 0px rgba(0,0,0,1);
+    }
+}
+
+@keyframes dots {
+    0% {
+        background-color: rgba(0,0,0, 1);
+        box-shadow: 12px 0px 0px 0px rgba(0,0,0,0.2), 
+        24px 0px 0px 0px rgba(0,0,0,0.2);
+    }
+    25% { 
+        background-color: rgba(0,0,0, 0.4);
+        box-shadow: 12px 0px 0px 0px rgba(0,0,0,2), 
+        24px 0px 0px 0px rgba(0,0,0,0.2);
+    }
+    75% { background-color: rgba(0,0,0, 0.4);
+        box-shadow: 12px 0px 0px 0px rgba(0,0,0,0.2), 
+        24px 0px 0px 0px rgba(0,0,0,1);
+    }
+}

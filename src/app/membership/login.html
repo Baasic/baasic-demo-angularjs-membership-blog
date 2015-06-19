@@ -1,19 +1,17 @@
 <form name="loginForm">
-  <h2>Login Form</h2>
-  <div>
-    <label for="userName">UserName:</label>
-    <input id="userName" type="text" ng-model="vm.user.username" required maxlength="30">
-  </div>
-  <div>
-    <label for="password">Password:</label>
-    <input id="password" type="password" ng-model="vm.user.password" required maxlength="30">
-  </div>
-  <hr>
-  <div>
-    <button type="submit" ng-click="vm.login()" ng-hide="vm.isUserLoggedIn">Login</button>
-  </div>
+    <h2>Login Form</h2>
+    <div class="field">
+        <label for="userName" class="label">Username:</label>
+        <input id="userName" class="input" type="text" ng-model="vm.user.username" required maxlength="30">
+    </div>
+    <div class="field">
+        <label for="password" class="label">Password:</label>
+        <input id="password" class="input" type="password" ng-model="vm.user.password" required maxlength="30">
+    </div>
+    <div class="field">
+        <button type="submit" class="button" ng-click="vm.login()" ng-hide="vm.isUserLoggedIn">Login</button>
+    </div>
 </form>
-<button type="submit" ng-click="vm.logout()" ng-show="vm.isUserLoggedIn">Logout</button>
-<div ng-if="vm.message">
-  <p>{{vm.message}}</p>
-</div>
+<button type="submit" class="button" ng-click="vm.logout()" ng-show="vm.isUserLoggedIn">Logout</button>
+<p class="errormessage" ng-if="vm.message">{{vm.message}}</p>
+<a ui-sref="password-recovery"><small>Forgot Password</small></a>
