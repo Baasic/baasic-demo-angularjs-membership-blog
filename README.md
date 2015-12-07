@@ -3,7 +3,7 @@ Baasic AngularJS Membership Module Demo
 
 ## Functionality
 
-This demo will be focused on user registration, account activation and login functionality by using [Baasic AngularJS SDK](https://github.com/Baasic/baasic-sdk-angularjs). More information about the [Demo](http://demo.baasic.com/angularjs/membership-demo/) can be found in the series of blog posts [here](http://www.baasic.com/posts/AngularJS-SDK-membership-part-1/).
+This demo will be focused on user registration, account activation, login and social login functionality by using [Baasic AngularJS SDK](https://github.com/Baasic/baasic-sdk-angularjs). More information about the [Demo](http://demo.baasic.com/angularjs/membership-demo/) can be found in the series of blog posts [here](http://www.baasic.com/posts/AngularJS-SDK-membership-part-1/).
 
 ## Build the demo
 

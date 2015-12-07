@@ -322,7 +322,7 @@ function dist (ext, name, opt) {
     .pipe(opt.ngAnnotate ? g.ngAnnotate : noop)
     .pipe(opt.ngAnnotate ? g.rename : noop, name + '.annotated.' + ext)
     .pipe(opt.ngAnnotate ? gulp.dest : noop, dest)
-    .pipe(ext === 'js' ? g.uglify : g.minifyCss)
+    //.pipe(ext === 'js' ? g.uglify : g.minifyCss)
     .pipe(g.rename, name + '.min.' + ext)
     .pipe(gulp.dest, dest)();
 }

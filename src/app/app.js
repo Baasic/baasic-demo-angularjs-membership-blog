@@ -3,12 +3,12 @@ angular.module('membershipblog', ['ui.router', 'baasic.security', 'baasic.member
     'use strict';
 
     //routing
-    $stateProvider
+    $stateProvider      
       .state('login',{
-        url: '/login',
+        url: '/login?code&oauth_token&oauth_verifier',
         templateUrl: Constants.templatesPath + 'membership/login.html',
         controller: 'LoginController'
-      })
+      })	  	  
       .state('register', {
         url: '/register',
         templateUrl: Constants.templatesPath + 'membership/register.html',
@@ -37,10 +37,21 @@ angular.module('membershipblog', ['ui.router', 'baasic.security', 'baasic.member
       });
 
     //default page
-    $urlRouterProvider.otherwise('/login');
+    $urlRouterProvider.otherwise(function($injector, $location){
+        var state = $injector.get('$state');		
+        var searchObject = $location.search();
+        if (searchObject && searchObject.oauth_token){
+            state.go('login', searchObject);
+        } else if (searchObject && searchObject.code){
+            state.go('login', searchObject);
+        } else{	
+            state.go('login');
+        }
+        return $location.path();
+    });
 
     //define Baasic app
-    baasicAppProvider.create('membership-blog', {
+    baasicAppProvider.create('social-login-demo-app', {
       apiRootUrl: 'api.baasic.com',
       apiVersion: 'beta'
     });
