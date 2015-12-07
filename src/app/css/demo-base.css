@@ -227,6 +227,33 @@ aside ul li {
 }
 
 /*------------------------------------*\
+    # social login
+\*------------------------------------*/
+.sociallogin {
+    float: right;
+    margin-top: 12px;
+}
+.social {
+    width: 24px;
+    margin-right: 12px;
+    overflow: hidden;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    display: inline-block;
+    opacity: 0.6;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+.social:hover,
+.social:focus {
+    opacity: 1;
+}
+.social img {
+    width: 100%;
+}
+
+/*------------------------------------*\
     # errormessage
 \*------------------------------------*/
 .errormessage {
