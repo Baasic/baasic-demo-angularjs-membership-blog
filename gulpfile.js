@@ -55,7 +55,7 @@ gulp.task('jshint', function () {
  * CSS
  */
 gulp.task('clean-css', function (done) {
-  rimraf('./.tmp/css', done);
+  rimraf('./.tmp/app.css', done);
 });
 
 gulp.task('styles', ['clean-css'], function () {
@@ -64,13 +64,13 @@ gulp.task('styles', ['clean-css'], function () {
     '!./src/app/**/_*.scss'
   ])
     .pipe(g.sass())
-    .pipe(gulp.dest('./.tmp/css/'))
+    .pipe(gulp.dest('./.tmp/'))
     .pipe(g.cached('built-css'))
     .pipe(livereload());
 });
 
 gulp.task('styles-dist', ['styles'], function () {
-  return cssFiles().pipe(dist('css', bower.name));
+  return cssFiles().pipe(dist('css', 'app'));
 });
 
 gulp.task('csslint', ['styles'], function () {
@@ -253,7 +253,7 @@ function testFiles() {
  * All CSS files as a stream
  */
 function cssFiles (opt) {
-  return gulp.src('./.tmp/css/**/*.css', opt);
+  return gulp.src('./.tmp/**/*.css', opt);
 }
 
 /**
@@ -315,7 +315,7 @@ function fileTypeFilter (files, extension) {
  */
 function dist (ext, name, opt) {
   opt = opt || {};
-  var dest = (ext === 'css' ? './dist/assets/css' : './dist');
+  var dest = './dist';
   return lazypipe()
     .pipe(g.concat, name + '.' + ext)
     .pipe(gulp.dest, dest)
