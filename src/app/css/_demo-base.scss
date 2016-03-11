@@ -205,6 +205,7 @@ aside ul li {
 }
 .button:hover {
     background: #222;
+    color: white;
     transition: all .2s;
 }
 
@@ -335,16 +336,16 @@ aside ul li {
 @-webkit-keyframes dots {
     0% {
         background-color: rgba(0,0,0, 1);
-        box-shadow: 12px 0px 0px 0px rgba(0,0,0,0.2), 
+        box-shadow: 12px 0px 0px 0px rgba(0,0,0,0.2),
         24px 0px 0px 0px rgba(0,0,0,0.2);
     }
-    25% { 
+    25% {
         background-color: rgba(0,0,0, 0.4);
-        box-shadow: 12px 0px 0px 0px rgba(0,0,0,2), 
+        box-shadow: 12px 0px 0px 0px rgba(0,0,0,2),
         24px 0px 0px 0px rgba(0,0,0,0.2);
     }
     75% { background-color: rgba(0,0,0, 0.4);
-        box-shadow: 12px 0px 0px 0px rgba(0,0,0,0.2), 
+        box-shadow: 12px 0px 0px 0px rgba(0,0,0,0.2),
         24px 0px 0px 0px rgba(0,0,0,1);
     }
 }
@@ -352,16 +353,16 @@ aside ul li {
 @-moz-keyframes dots {
     0% {
         background-color: rgba(0,0,0, 1);
-        box-shadow: 12px 0px 0px 0px rgba(0,0,0,0.2), 
+        box-shadow: 12px 0px 0px 0px rgba(0,0,0,0.2),
         24px 0px 0px 0px rgba(0,0,0,0.2);
     }
-    25% { 
+    25% {
         background-color: rgba(0,0,0, 0.4);
-        box-shadow: 12px 0px 0px 0px rgba(0,0,0,2), 
+        box-shadow: 12px 0px 0px 0px rgba(0,0,0,2),
         24px 0px 0px 0px rgba(0,0,0,0.2);
     }
     75% { background-color: rgba(0,0,0, 0.4);
-        box-shadow: 12px 0px 0px 0px rgba(0,0,0,0.2), 
+        box-shadow: 12px 0px 0px 0px rgba(0,0,0,0.2),
         24px 0px 0px 0px rgba(0,0,0,1);
     }
 }
@@ -369,16 +370,16 @@ aside ul li {
 @keyframes dots {
     0% {
         background-color: rgba(0,0,0, 1);
-        box-shadow: 12px 0px 0px 0px rgba(0,0,0,0.2), 
+        box-shadow: 12px 0px 0px 0px rgba(0,0,0,0.2),
         24px 0px 0px 0px rgba(0,0,0,0.2);
     }
-    25% { 
+    25% {
         background-color: rgba(0,0,0, 0.4);
-        box-shadow: 12px 0px 0px 0px rgba(0,0,0,2), 
+        box-shadow: 12px 0px 0px 0px rgba(0,0,0,2),
         24px 0px 0px 0px rgba(0,0,0,0.2);
     }
     75% { background-color: rgba(0,0,0, 0.4);
-        box-shadow: 12px 0px 0px 0px rgba(0,0,0,0.2), 
+        box-shadow: 12px 0px 0px 0px rgba(0,0,0,0.2),
         24px 0px 0px 0px rgba(0,0,0,1);
     }
 }
