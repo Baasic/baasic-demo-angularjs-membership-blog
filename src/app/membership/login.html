@@ -13,10 +13,10 @@
             <button type="submit" class="button" ng-click="vm.login()" ng-hide="vm.isUserLoggedIn">Login</button>
             <div ng-show="!vm.isUserLoggedIn" class="sociallogin">
                 <div>
-                    <button type="button" class="social" ng-click="vm.socialLogin.startLogin('twitter')" title="Sign in with Twitter"><img src="/img/social/smm-twitter.svg" alt="Twitter"></button>
-                    <button type="button" class="social" ng-click="vm.socialLogin.startLogin('facebook')" title="Sign in with Facebook"><img src="/img/social/smm-facebook.svg" alt="Facebook"></button>
-                    <button type="button" class="social" ng-click="vm.socialLogin.startLogin('github')" title="Sign in with Github"><img src="/img/social/smm-github.svg" alt="Github"></button>
-                    <button type="button" class="social" ng-click="vm.socialLogin.startLogin('google')" title="Sign in with Google"><img src="/img/social/smm-googleplus.svg" alt="Google Plus"></button>
+                    <button type="button" class="social" ng-click="vm.socialLogin.startLogin('twitter')" title="Sign in with Twitter"><img src="assets/img/social/smm-twitter.svg" alt="Twitter"></button>
+                    <button type="button" class="social" ng-click="vm.socialLogin.startLogin('facebook')" title="Sign in with Facebook"><img src="assets/img/social/smm-facebook.svg" alt="Facebook"></button>
+                    <button type="button" class="social" ng-click="vm.socialLogin.startLogin('github')" title="Sign in with Github"><img src="assets/img/social/smm-github.svg" alt="Github"></button>
+                    <button type="button" class="social" ng-click="vm.socialLogin.startLogin('google')" title="Sign in with Google"><img src="assets/img/social/smm-googleplus.svg" alt="Google Plus"></button>
                 </div>
                 <p ng-show="vm.socialLogin.notification && vm.socialLogin.notification.length > 0">
                     {{vm.socialLogin.notification}}
